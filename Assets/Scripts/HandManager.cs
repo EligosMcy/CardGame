@@ -73,7 +73,7 @@ public class HandManager : MonoBehaviour
 
         for (int i = 0; i < handCardListCount; i++)
         {
-            float p = firstCardOffsetFloat + i * cardSpacing;
+            float p = firstCardPositionFloat + i * cardSpacing;
 
             Vector3 splinePosition = spline.EvaluatePosition(p);
 
@@ -83,7 +83,7 @@ public class HandManager : MonoBehaviour
 
             Vector3 cardUp = Vector3.Cross(up, forward).normalized;
 
-            Quaternion rotation = quaternion.LookRotation(forward, cardUp);
+            Quaternion rotation = quaternion.LookRotation(up, cardUp);
 
             _handCardList[i].transform.DOMove(splinePosition, _cardTweenDuration);
             _handCardList[i].transform.DORotateQuaternion(rotation, _cardTweenDuration);
