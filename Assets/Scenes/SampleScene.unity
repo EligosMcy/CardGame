@@ -148,9 +148,58 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 773388281}
   - {fileID: 1565548420}
+  - {fileID: 134489659}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &134489658
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 134489659}
+  - component: {fileID: 134489660}
+  m_Layer: 0
+  m_Name: HandView
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &134489659
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134489658}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1092569260}
+  m_Father: {fileID: 94481470}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &134489660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134489658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86e3f7a8470bf0e4089d21b6eb413504, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHandSize: 10
+  _splineContainer: {fileID: 1092569259}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,50 +346,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 355332908}
-  - component: {fileID: 355332907}
+  - component: {fileID: 355332909}
   m_Layer: 0
-  m_Name: HandManager
+  m_Name: CardViewCreator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &355332907
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 355332906}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46df57884bb1fa84c948ff4b70c83f98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxHandSize: 10
-  _cardPrefab: {fileID: 9110861560564235906, guid: 6ba694831f3907141b6dfc1bb98cc2f4, type: 3}
-  _splineContainer: {fileID: 1092569259}
-  _spawnPoint: {fileID: 773388281}
-  _drawCardInputActionProperty:
-    m_UseReference: 0
-    m_Action:
-      m_Name: Draw Card Input Action Property
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: b9ee8347-fad0-405b-990c-a27eba42791a
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings:
-      - m_Name: 
-        m_Id: e93fb4d5-b915-4840-b57b-2494d3bab76d
-        m_Path: <Keyboard>/space
-        m_Interactions: 
-        m_Processors: 
-        m_Groups: 
-        m_Action: Draw Card Input Action Property
-        m_Flags: 0
-      m_Flags: 0
-    m_Reference: {fileID: 0}
 --- !u!4 &355332908
 Transform:
   m_ObjectHideFlags: 0
@@ -349,13 +362,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 355332906}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &355332909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355332906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25c0270e7ea8fa840b8da02850770ca3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cardViewPrefab: {fileID: 4497735349216830888, guid: 58ebd283ea7b63e4bb9853c4c192fb32, type: 3}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -532,12 +558,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 773388280}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 9.5, y: 5.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 94481470}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &832575517
 GameObject:
@@ -647,10 +673,10 @@ MonoBehaviour:
         z: 0.50990194
       Rotation:
         value:
-          x: 0.4482979
-          y: 0.5468354
+          x: 0.44829792
+          y: 0.54683536
           z: 0.5468355
-          w: 0.44829783
+          w: 0.44829777
     - Position:
         x: 0
         y: -3
@@ -658,17 +684,17 @@ MonoBehaviour:
       TangentIn:
         x: 0
         y: 0
-        z: -2.69
+        z: -4
       TangentOut:
         x: 0
         y: 0
-        z: 2.69
+        z: 4
       Rotation:
         value:
-          x: 0.49274668
-          y: 0.50714386
-          z: 0.5071495
-          w: 0.49275258
+          x: 0.50000006
+          y: 0.49999994
+          z: 0.50000006
+          w: 0.49999994
     - Position:
         x: 5
         y: -4
@@ -684,9 +710,9 @@ MonoBehaviour:
       Rotation:
         value:
           x: 0.5468355
-          y: 0.44829783
-          z: 0.4482979
-          w: 0.5468354
+          y: 0.44829777
+          z: 0.44829792
+          w: 0.54683536
     m_MetaData:
     - Mode: 0
       Tension: 0.5
@@ -713,12 +739,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1092569258}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 134489659}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1161981531
 GameObject:
@@ -748,7 +774,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2070076424}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1332935496
@@ -872,6 +899,71 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2070076423
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2070076424}
+  - component: {fileID: 2070076425}
+  m_Layer: 0
+  m_Name: TestSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2070076424
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070076423}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1161981532}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2070076425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070076423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75f5aed851ef6284481c5b784465a70d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _handView: {fileID: 134489660}
+  _creatorCardViewInputaction:
+    m_UseReference: 0
+    m_Action:
+      m_Name: Creator Card View Inputaction
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 7cb08fbf-2853-457a-9209-57522a0611b8
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: c7de204b-3d49-451c-85f4-f3c5c5eb1d9a
+        m_Path: <Keyboard>/space
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Creator Card View Inputaction
+        m_Flags: 0
+      m_Flags: 0
+    m_Reference: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -880,6 +972,4 @@ SceneRoots:
   - {fileID: 581413114}
   - {fileID: 94481470}
   - {fileID: 1161981532}
-  - {fileID: 773388281}
   - {fileID: 355332908}
-  - {fileID: 1092569260}
