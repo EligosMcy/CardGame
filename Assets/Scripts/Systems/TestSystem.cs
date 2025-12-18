@@ -1,7 +1,10 @@
 using System;
-using Assets.Scripts.Views;
+using Creators;
+using Data;
+using Models;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Views;
 
 namespace Systems
 {
@@ -9,18 +12,22 @@ namespace Systems
     {
         [SerializeField] private HandView _handView;
 
-        [SerializeField] private InputActionProperty _creatorCardViewInputaction;
+        [SerializeField] private CardData _testCardData;
+
+        [SerializeField] private InputActionProperty _creatorCardViewInputAction;
 
         private void Start()
         {
-            _creatorCardViewInputaction.action.Enable();
+            _creatorCardViewInputAction.action.Enable();
 
-            _creatorCardViewInputaction.action.performed += creatorCardView;
+            _creatorCardViewInputAction.action.performed += creatorCardView;
         }
 
         private void creatorCardView(InputAction.CallbackContext obj)
         {
-            CardView cardView = CardViewCreator.Instance.CreateCardView(transform.position, Quaternion.identity);
+            Card card = new Card(_testCardData);
+
+            CardView cardView = CardViewCreator.Instance.CreateCardView(card, transform.position, Quaternion.identity);
             StartCoroutine(_handView.AddCard(cardView));
         }
     }

@@ -1,23 +1,28 @@
-using Assets.Scripts.Views;
 using DG.Tweening;
 using General;
+using Models;
 using UnityEngine;
-using UnityEngine.Serialization;
+using Views;
 
-public class CardViewCreator : Singleton<CardViewCreator>
+namespace Creators
 {
-    [SerializeField] private CardView _cardViewPrefab;
-
-    private readonly float _createShowDuration = 0.15f;
-
-    public CardView CreateCardView(Vector3 position, Quaternion rotation)
+    public class CardViewCreator : Singleton<CardViewCreator>
     {
-        CardView cardView = Instantiate(_cardViewPrefab, position, rotation);
+        [SerializeField] private CardView _cardViewPrefab;
 
-        cardView.transform.localScale = Vector3.zero;
+        private readonly float _createShowDuration = 0.15f;
 
-        cardView.transform.DOScale(Vector3.one, _createShowDuration);
+        public CardView CreateCardView(Card card, Vector3 position, Quaternion rotation)
+        {
+            CardView cardView = Instantiate(_cardViewPrefab, position, rotation);
 
-        return cardView;
+            cardView.transform.localScale = Vector3.zero;
+
+            cardView.transform.DOScale(Vector3.one, _createShowDuration);
+
+            cardView.Setup(card);
+
+            return cardView;
+        }
     }
 }

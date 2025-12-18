@@ -1,69 +1,75 @@
-using Assets.Scripts.Views;
-using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Splines;
 
-public class HandView : MonoBehaviour
+namespace Views
 {
-    [SerializeField]
-    [Range(1, 100)]
-    private int _maxHandSize;
-
-    [SerializeField]
-    private SplineContainer _splineContainer;
-
-    private readonly List<CardView> _cardViewList = new List<CardView>();
-
-    private readonly float _updateCardDuration = 0.15f;
-
-    private float _splineFloat = 1;
-
-    private float _middleSplineFloat = 0.5f;
-
-    private float _cardTweenDuration = 0.25f;
-
-    public IEnumerator AddCard(CardView cardView)
+    public class HandView : MonoBehaviour
     {
-        _cardViewList.Add(cardView);
+        [SerializeField]
+        [Range(1, 100)]
+        private int _maxHandSize;
 
-        yield return updateCardPositions(_updateCardDuration);
-    }
+        [SerializeField]
+        private SplineContainer _splineContainer;
 
-    private IEnumerator updateCardPositions(float duration)
-    {
-        if (_cardViewList == null) yield break;
+        private readonly List<CardView> _cardViewList = new List<CardView>();
 
-        int handCardListCount = _cardViewList.Count;
+        private readonly float _updateCardDuration = 0.15f;
 
-        if (handCardListCount == 0) yield break;
+        private float _splineFloat = 1;
 
-        float cardSpacing = 1f / _maxHandSize;
+        private readonly float _middleSplineFloat = 0.5f;
 
-        float firstCardOffsetFloat = ((handCardListCount - 1) * cardSpacing) / 2;
+        private readonly float _cardTweenDuration = 0.25f;
 
-        float firstCardPositionFloat = _middleSplineFloat - firstCardOffsetFloat;
-
-        //
-        Spline spline = _splineContainer.Spline;
-
-        for (int i = 0; i < handCardListCount; i++)
+        public IEnumerator AddCard(CardView cardView)
         {
-            float p = firstCardPositionFloat + i * cardSpacing;
+            _cardViewList.Add(cardView);
 
-            Vector3 splinePosition = spline.EvaluatePosition(p);
+            yield return updateCardPositions(_updateCardDuration);
+        }
 
-            Vector3 forward = spline.EvaluateTangent(p);
+        private IEnumerator updateCardPositions(float duration)
+        {
+            if (_cardViewList == null) yield break;
 
-            Vector3 up = spline.EvaluateUpVector(p);
+            Vector3 handViewPos = transform.position;
 
-            Vector3 cardUp = Vector3.Cross(up, forward).normalized;
+            int handCardListCount = _cardViewList.Count;
 
-            Quaternion rotation = Quaternion.LookRotation(up, cardUp);
+            if (handCardListCount == 0) yield break;
 
-            _cardViewList[i].transform.DOMove(splinePosition, _cardTweenDuration);
-            _cardViewList[i].transform.DORotateQuaternion(rotation, _cardTweenDuration);
+            float cardSpacing = 1f / _maxHandSize;
+
+            float firstCardOffsetFloat = ((handCardListCount - 1) * cardSpacing) / 2;
+
+            float firstCardPositionFloat = _middleSplineFloat - firstCardOffsetFloat;
+
+            //
+            Spline spline = _splineContainer.Spline;
+
+            for (int i = 0; i < handCardListCount; i++)
+            {
+                float p = firstCardPositionFloat + i * cardSpacing;
+
+                Vector3 splinePosition = spline.EvaluatePosition(p);
+
+                Vector3 forward = spline.EvaluateTangent(p);
+
+                Vector3 up = spline.EvaluateUpVector(p);
+
+                Vector3 cardUp = Vector3.Cross(up, forward).normalized;
+
+                Quaternion rotation = Quaternion.LookRotation(up, cardUp);
+
+                _cardViewList[i].transform.DOMove(splinePosition + handViewPos, _cardTweenDuration);
+                _cardViewList[i].transform.DORotateQuaternion(rotation, _cardTweenDuration);
+            }
+
+            yield return new WaitForSeconds(duration);
         }
     }
 }
