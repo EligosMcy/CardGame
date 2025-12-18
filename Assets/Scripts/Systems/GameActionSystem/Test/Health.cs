@@ -8,8 +8,8 @@ namespace Systems.GameActionSystem.Test
 {
     public class Health : MonoBehaviour
     {
-        [SerializeField] 
-        private TextMeshProUGUI _healthText;
+        [SerializeField]
+        private TextMeshPro _healthText;
 
         private int _healthAmount;
 
@@ -25,6 +25,16 @@ namespace Systems.GameActionSystem.Test
             yield return 0;
 
             _healthAmount -= damageAmount;
+
+            updateHealthText();
+
+            Sequence sequence = DOTween.Sequence();
+
+            sequence.Append(transform.DOScale(1.25f, 0.25f));
+
+            sequence.Append(transform.DOScale(1f, 0.25f));
+
+            yield return sequence.WaitForCompletion();
         }
 
         private void updateHealthText()

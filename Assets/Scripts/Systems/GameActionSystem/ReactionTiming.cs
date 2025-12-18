@@ -2,10 +2,14 @@
 {
     public enum ReactionTiming
     {
-        //Before
+        /// <summary>
+        /// Before
+        /// </summary>
         PRE,
 
-        //After
+        /// <summary>
+        /// After
+        /// </summary>
         POST,
     }
 }

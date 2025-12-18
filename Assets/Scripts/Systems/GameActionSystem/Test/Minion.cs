@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DG.Tweening;
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -28,12 +29,13 @@ namespace Systems.GameActionSystem.Test
 
         void OnEnable()
         {
-            ActionSystem.SubscribeReaction<DealDamageGA>(dealDamageReaction, ReactionTiming.POST);
+            ActionSystem.SubscribeReaction<DealDamageGA>(dealDamageReaction, ReactionTiming.PRE);
         }
         void OnDisable()
         {
-            ActionSystem.UnsubscribeReaction<DealDamageGA>(dealDamageReaction, ReactionTiming.POST);
+            ActionSystem.UnsubscribeReaction<DealDamageGA>(dealDamageReaction, ReactionTiming.PRE);
         }
+
         private void dealDamageReaction(DealDamageGA dealDamageGa)
         {
             IncreaseStatsGA increaseStatsGa = new(this, dealDamageGa.Amount, dealDamageGa.Amount);
@@ -49,7 +51,13 @@ namespace Systems.GameActionSystem.Test
             updateHealthText();
             updateAttackText();
 
-            yield return 0;
+            Sequence sequence = DOTween.Sequence();
+
+            sequence.Append(transform.DOScale(1.25f, 0.25f));
+
+            sequence.Append(transform.DOScale(1f, 0.25f));
+
+            yield return sequence.WaitForCompletion();
         }
 
         private void updateAttackText()

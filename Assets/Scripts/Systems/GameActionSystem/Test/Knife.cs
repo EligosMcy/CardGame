@@ -18,9 +18,9 @@ namespace Systems.GameActionSystem
 
         private void drawCardReaction(DrawCardGA drawCardGa)
         {
-            DealDamageGA dealDamageGA = new DealDamageGA(3);
+            DealDamageGA dealDamageGa = new DealDamageGA(3);
 
-            ActionSystem.Instance.AddReaction(dealDamageGA);
+            ActionSystem.Instance.AddReaction(dealDamageGa);
         }
     }
 }

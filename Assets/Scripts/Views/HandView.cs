@@ -19,7 +19,7 @@ namespace Views
 
         private readonly float _updateCardDuration = 0.15f;
 
-        private float _splineFloat = 1;
+        private readonly float _splineFloat = 1;
 
         private readonly float _middleSplineFloat = 0.5f;
 
@@ -42,7 +42,7 @@ namespace Views
 
             if (handCardListCount == 0) yield break;
 
-            float cardSpacing = 1f / _maxHandSize;
+            float cardSpacing = _splineFloat / _maxHandSize;
 
             float firstCardOffsetFloat = ((handCardListCount - 1) * cardSpacing) / 2;
 
