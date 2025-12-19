@@ -1,8 +1,7 @@
-﻿using System;
-using Systems.GameActionSystem.Test.GameActaionClass;
+﻿using General.ActionSystemComponents.Test.GameActaionClass;
 using UnityEngine;
 
-namespace Systems.GameActionSystem.Test
+namespace General.ActionSystemComponents.Test
 {
     public class Card : MonoBehaviour
     {

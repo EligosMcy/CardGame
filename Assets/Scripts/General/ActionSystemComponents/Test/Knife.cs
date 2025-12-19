@@ -1,10 +1,9 @@
 ﻿using System.Collections;
-using Systems.GameActionSystem.Test.GameActaionClass;
+using General.ActionSystemComponents.Test.GameActaionClass;
 using UnityEditor.Animations;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
-namespace Systems.GameActionSystem.Test
+namespace General.ActionSystemComponents.Test
 {
     public class Knife : MonoBehaviour
     {

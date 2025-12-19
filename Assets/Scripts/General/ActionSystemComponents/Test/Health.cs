@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
-namespace Systems.GameActionSystem.Test
+namespace General.ActionSystemComponents.Test
 {
     public class Health : MonoBehaviour
     {

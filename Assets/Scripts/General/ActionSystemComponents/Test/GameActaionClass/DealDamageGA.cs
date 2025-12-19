@@ -1,4 +1,4 @@
-﻿namespace Systems.GameActionSystem.Test.GameActaionClass
+﻿namespace General.ActionSystemComponents.Test.GameActaionClass
 {
     //造成伤害
     public class DealDamageGA : GameAction

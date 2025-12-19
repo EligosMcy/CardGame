@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Systems.GameActionSystem
+namespace General.ActionSystemComponents
 {
     public class ActionSystem : General.Singleton<ActionSystem>
     {

@@ -1,4 +1,4 @@
-﻿namespace Systems.GameActionSystem
+﻿namespace General.ActionSystemComponents
 {
     public enum ReactionTiming
     {

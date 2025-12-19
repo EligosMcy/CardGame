@@ -1,8 +1,8 @@
 ﻿using System.Collections;
-using Systems.GameActionSystem.Test.GameActaionClass;
+using General.ActionSystemComponents.Test.GameActaionClass;
 using UnityEngine;
 
-namespace Systems.GameActionSystem.Test
+namespace General.ActionSystemComponents.Test
 {
     public class StateSystem : MonoBehaviour
     {

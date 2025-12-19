@@ -1,11 +1,10 @@
-﻿using DG.Tweening;
-using System;
-using System.Collections;
-using Systems.GameActionSystem.Test.GameActaionClass;
+﻿using System.Collections;
+using DG.Tweening;
+using General.ActionSystemComponents.Test.GameActaionClass;
 using TMPro;
 using UnityEngine;
 
-namespace Systems.GameActionSystem.Test
+namespace General.ActionSystemComponents.Test
 {
     public class Minion : MonoBehaviour
     {
