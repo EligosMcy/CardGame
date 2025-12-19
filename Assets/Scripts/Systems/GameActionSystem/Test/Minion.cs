@@ -1,6 +1,7 @@
 ﻿using DG.Tweening;
 using System;
 using System.Collections;
+using Systems.GameActionSystem.Test.GameActaionClass;
 using TMPro;
 using UnityEngine;
 
@@ -29,11 +30,11 @@ namespace Systems.GameActionSystem.Test
 
         void OnEnable()
         {
-            ActionSystem.SubscribeReaction<DealDamageGA>(dealDamageReaction, ReactionTiming.PRE);
+            ActionSystem.SubscribeReaction<DealDamageGA>(dealDamageReaction, ReactionTiming.POST);
         }
         void OnDisable()
         {
-            ActionSystem.UnsubscribeReaction<DealDamageGA>(dealDamageReaction, ReactionTiming.PRE);
+            ActionSystem.UnsubscribeReaction<DealDamageGA>(dealDamageReaction, ReactionTiming.POST);
         }
 
         private void dealDamageReaction(DealDamageGA dealDamageGa)

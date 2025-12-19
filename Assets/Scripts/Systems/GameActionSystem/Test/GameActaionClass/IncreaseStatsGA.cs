@@ -1,4 +1,4 @@
-﻿namespace Systems.GameActionSystem.Test
+﻿namespace Systems.GameActionSystem.Test.GameActaionClass
 {
     //提升属性
     public class IncreaseStatsGA : GameAction

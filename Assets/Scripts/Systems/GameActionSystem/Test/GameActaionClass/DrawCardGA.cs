@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace Systems.GameActionSystem.Test
+﻿namespace Systems.GameActionSystem.Test.GameActaionClass
 {
     public class DrawCardGA : GameAction
     {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using DG.Tweening;
+using Systems.GameActionSystem.Test.GameActaionClass;
 using UnityEngine;
 
 namespace Systems.GameActionSystem.Test
@@ -29,13 +30,23 @@ namespace Systems.GameActionSystem.Test
 
             Vector3 knifeStartPos = _knife.transform.position;
 
-            Tween tween = _knife.transform.DOMove(_health.transform.position, 0.25f);
+            _knife.PlayAnimator("Run");
 
-            yield return tween.WaitForCompletion();
+            Tween toTween = _knife.transform.DOMove(_health.transform.position, 0.25f);
 
-            _knife.transform.DOMove(knifeStartPos, 0.5f);
+            yield return toTween.WaitForCompletion();
+
+            yield return _knife.PlayAnimatorAndWait("Attack");
 
             yield return _health.ReduceHealth(damageAmount);
+
+            _knife.PlayAnimator("Run");
+
+            Tween backTween = _knife.transform.DOMove(knifeStartPos, 0.25f);
+
+            yield return backTween.WaitForCompletion();
+
+            _knife.PlayAnimator("Idle");
         }
     }
 }
