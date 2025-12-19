@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using DG.Tweening;
+using Models;
 using UnityEngine;
 using UnityEngine.Splines;
 
@@ -31,6 +33,28 @@ namespace Views
 
             yield return updateCardPositions(_updateCardDuration);
         }
+
+        public CardView RemoveCard(Card card)
+        {
+            CardView cardView = getCardView(card);
+
+            if (cardView == null)
+            {
+                return null;
+            }
+
+            _cardViewList.Remove(cardView);
+
+            StartCoroutine(updateCardPositions(_updateCardDuration));
+
+            return cardView;
+        }
+
+        private CardView getCardView(Card card)
+        {
+            return _cardViewList.FirstOrDefault(cardView => cardView.Card == card);
+        }
+
 
         private IEnumerator updateCardPositions(float duration)
         {
@@ -71,5 +95,7 @@ namespace Views
 
             yield return new WaitForSeconds(duration);
         }
+
+
     }
 }

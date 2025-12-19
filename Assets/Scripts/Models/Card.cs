@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Data;
 using UnityEngine;
 
@@ -19,7 +20,10 @@ namespace Models
 
         public Sprite Image => _data.Image;
 
+        public List<Effect> Effects => _data.Effects;
+
         public int Mana { get; private set; }
+
 
         private readonly CardData _data;
 

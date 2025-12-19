@@ -35,6 +35,11 @@ namespace General.ActionSystemComponents
             }));
         }
 
+
+        /// <summary>
+        /// 想要在执行中的GameAction 中 执行另一个游戏动作 使用这个方法
+        /// </summary>
+        /// <param name="gameAction"></param>
         public void AddReaction(GameAction gameAction)
         {
             _reactions?.Add(gameAction);

@@ -399,11 +399,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a97e0d7f92d71a840bd265a7d8bba167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _title: {fileID: 1680718448764796872}
+  _title: {fileID: 2001765287118684992}
   _description: {fileID: 1840461941093549352}
   _mana: {fileID: 1680718448764796872}
   _imageSr: {fileID: 6008117938189886776}
   _wrapper: {fileID: 5023741855722054526}
+  _dropAreaLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!210 &2488370831604412704
 SortingGroup:
   m_ObjectHideFlags: 0
