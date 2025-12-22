@@ -1,12 +1,13 @@
-﻿using UnityEngine;
+﻿using Data;
+using UnityEngine;
 
 namespace Views
 {
     public class HeroView : CombatantView
     {
-        public void Setup()
+        public void Setup(HeroData heroData)
         {
-            SetupBase(10, null);
+            SetupBase(heroData.Health, heroData.Image);
         }
     }
 }

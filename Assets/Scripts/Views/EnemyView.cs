@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using Data;
+using TMPro;
 using UnityEngine;
 
 namespace Views
@@ -9,13 +10,13 @@ namespace Views
 
         public int AttackPower { get; set; }
 
-        public void Setup()
+        public void Setup(EnemyData enemyData)
         {
-            AttackPower = 10;
+            AttackPower = enemyData.AttackPower;
 
             updateAttackText();
 
-            SetupBase(10, null);
+            SetupBase(enemyData.Health, enemyData.Image);
         }
 
         private void updateAttackText()
