@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using DG.Tweening;
+using TMPro;
 using UnityEngine;
 
 namespace Views
@@ -25,6 +26,20 @@ namespace Views
         private void updateHealthText()
         {
             _healthText.text = "HP: " + CurrentHealth;
+        }
+
+        public void Damage(int damageAmount)
+        {
+            CurrentHealth -= damageAmount;
+
+            if (CurrentHealth < 0)
+            {
+                CurrentHealth = 0;
+            }
+
+            transform.DOShakePosition(0.2f, 0.5f);
+
+            updateHealthText();
         }
 
 
