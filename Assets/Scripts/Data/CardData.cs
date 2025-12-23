@@ -1,6 +1,7 @@
 using Models;
 using SerializeReferenceEditor;
 using System.Collections.Generic;
+using Effects;
 using UnityEngine;
 
 namespace Data
@@ -18,6 +19,9 @@ namespace Data
         public Sprite Image { get; private set; }
 
         [field: SerializeReference, SR]
-        public List<Effect> Effects { get; private set; }
+        public Effect ManualTargetEffect { get; private set; } = null;
+
+        [field: SerializeField]
+        public List<AutoTargetEffect> OtherEffects { get; private set; } = new List<AutoTargetEffect>();
     }
 }

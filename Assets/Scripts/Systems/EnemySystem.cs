@@ -15,11 +15,15 @@ namespace Systems
         [SerializeField]
         private EnemyBoardView _enemyBoardView;
 
+        public List<EnemyView> Enemies => _enemyBoardView.EnemyViews;
+
         private void OnEnable()
         {
             ActionSystem.AttachPerformer<EnemyTurnGA>(enemyTurnPerformer);
 
-            ActionSystem.AttachPerformer<AttackHeroGA>(AttackHeroPerformer);
+            ActionSystem.AttachPerformer<AttackHeroGA>(attackHeroPerformer);
+
+            ActionSystem.AttachPerformer<KillEnemyGA>(killEnemyPerformer);
         }
 
         private void OnDisable()
@@ -27,6 +31,8 @@ namespace Systems
             ActionSystem.DetachPerformer<EnemyTurnGA>();
 
             ActionSystem.DetachPerformer<AttackHeroGA>();
+
+            ActionSystem.DetachPerformer<KillEnemyGA>();
         }
 
         public void Setup(List<EnemyData> enemyDataList)
@@ -49,7 +55,7 @@ namespace Systems
             yield return 0;
         }
 
-        private IEnumerator AttackHeroPerformer(AttackHeroGA attackHeroGa)
+        private IEnumerator attackHeroPerformer(AttackHeroGA attackHeroGa)
         {
             EnemyView attacker = attackHeroGa.Attacker;
 
@@ -70,6 +76,11 @@ namespace Systems
             DealDamageGA dealDamageGa = new DealDamageGA(attacker.AttackPower, new List<CombatantView>() { heroCombatantView });
 
             ActionSystem.Instance.AddReaction(dealDamageGa);
+        }
+
+        private IEnumerator killEnemyPerformer(KillEnemyGA killEnemyGa)
+        {
+            yield return _enemyBoardView.RemoveEnemy(killEnemyGa.EnemyView);
         }
 
     }

@@ -89,8 +89,6 @@ namespace Systems
         {
             foreach (Card card in _handPile)
             {
-                _discardPile.Add(card);
-
                 CardView cardView = _handView.RemoveCard(card);
 
                 yield return discardCard(cardView);
@@ -103,8 +101,6 @@ namespace Systems
         {
             _handPile.Remove(playCardGa.Card);
 
-            _discardPile.Add(playCardGa.Card);
-
             CardView cardView = _handView.RemoveCard(playCardGa.Card);
 
             yield return discardCard(cardView);
@@ -114,9 +110,11 @@ namespace Systems
             ActionSystem.Instance.AddReaction(spendManaGa);
 
             //perform Effects
-            foreach (var effect in playCardGa.Card.Effects)
+            foreach (var effectWrapper in playCardGa.Card.OtherEffects)
             {
-                PerformEffectGA performEffectGa = new PerformEffectGA(effect);
+                List<CombatantView> targets = effectWrapper.TargetMode.GetTargets();
+
+                PerformEffectGA performEffectGa = new PerformEffectGA(effectWrapper.Effect, targets);
 
                 ActionSystem.Instance.AddReaction(performEffectGa);
             }
@@ -142,6 +140,8 @@ namespace Systems
 
         private IEnumerator discardCard(CardView cardView)
         {
+            _discardPile.Add(cardView.Card);
+
             cardView.transform.DOMove(Vector3.zero, 0.15f);
 
             Tween tween = cardView.transform.DOMove(_discardPilePoint.position, 0.15f);

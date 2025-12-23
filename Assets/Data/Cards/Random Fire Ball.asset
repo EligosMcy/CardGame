@@ -10,27 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76ff972979bea0a48b275cfd92b2e098, type: 3}
-  m_Name: Draw
+  m_Name: Random Fire Ball
   m_EditorClassIdentifier: 
-  <Description>k__BackingField: Draw 2 cards
+  <Description>k__BackingField: Deal 5 damage to random enemy
   <Mana>k__BackingField: 1
-  <Image>k__BackingField: {fileID: 21300000, guid: 066cc7941702be2409b4c86b8dac4ea9, type: 3}
+  <Image>k__BackingField: {fileID: 21300000, guid: dc361f15bb071d24c9b2403b510112a6, type: 3}
   <ManualTargetEffect>k__BackingField:
     rid: -2
   <OtherEffects>k__BackingField:
   - <TargetMode>k__BackingField:
-      rid: 4498577593036177492
+      rid: 4498577593036177495
     <Effect>k__BackingField:
-      rid: 4498577593036177493
+      rid: 4498577593036177496
   references:
     version: 2
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
-    - rid: 4498577593036177492
-      type: {class: NoTM, ns: TargetModels, asm: Assembly-CSharp}
+    - rid: 4498577593036177495
+      type: {class: RandomEnemyTM, ns: TargetModels, asm: Assembly-CSharp}
       data: 
-    - rid: 4498577593036177493
-      type: {class: DrawCardEffect, ns: Effects, asm: Assembly-CSharp}
+    - rid: 4498577593036177496
+      type: {class: DealDamageEffect, ns: Effects, asm: Assembly-CSharp}
       data:
-        _drawAmount: 2
+        _damageAmount: 5

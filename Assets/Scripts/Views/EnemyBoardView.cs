@@ -1,6 +1,8 @@
-﻿using Creators;
+﻿using System.Collections;
+using Creators;
 using Data;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 namespace Views
@@ -22,16 +24,15 @@ namespace Views
             EnemyViews.Add(enemyView);
         }
 
-
-        public void RemoveEnemy(EnemyData enemyData)
+        public IEnumerator RemoveEnemy(EnemyView enemyView)
         {
-            Transform slot = _slots[EnemyViews.Count];
+            EnemyViews.Remove(enemyView);
 
-            EnemyView enemyView = EnemyViewCreator.Instance.CreateEnemyView(enemyData, slot.position, slot.rotation);
+            Tween tween = enemyView.transform.DOScale(Vector3.zero, 0.25f);
 
-            enemyView.transform.SetParent(slot);
+            yield return tween.WaitForCompletion();
 
-            EnemyViews.Add(enemyView);
+            Destroy(enemyView.gameObject);
         }
 
     }

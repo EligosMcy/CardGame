@@ -41,7 +41,5 @@ namespace Views
 
             updateHealthText();
         }
-
-
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Data;
+using Effects;
 using UnityEngine;
 
 namespace Models
@@ -20,7 +21,9 @@ namespace Models
 
         public Sprite Image => _data.Image;
 
-        public List<Effect> Effects => _data.Effects;
+        public Effect ManualTargetEffect => _data.ManualTargetEffect;
+
+        public List<AutoTargetEffect> OtherEffects => _data.OtherEffects;
 
         public int Mana { get; private set; }
 

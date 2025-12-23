@@ -22,7 +22,7 @@ namespace Systems
 
         private IEnumerator performEffectGaPerformer(PerformEffectGA performEffectGa)
         {
-            GameAction effectAction = performEffectGa.Effect.GetGameAction();
+            GameAction effectAction = performEffectGa.Effect.GetGameAction(performEffectGa.Targets);
 
             ActionSystem.Instance.AddReaction(effectAction);
 

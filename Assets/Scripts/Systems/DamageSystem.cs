@@ -32,6 +32,20 @@ namespace Systems
                 Instantiate(_damageVFX, targetTran.position, targetTran.rotation);
 
                 yield return new WaitForSeconds(0.15f);
+
+                if (combatantView.CurrentHealth <= 0)
+                {
+                    if (combatantView is EnemyView enemyView)
+                    {
+                        KillEnemyGA killEnemyGa = new KillEnemyGA(enemyView);
+                        ActionSystem.Instance.AddReaction(killEnemyGa);
+                    }
+                }
+                else
+                {
+                    // Do some game over logic here
+                    // Open game other scene
+                }
             }
 
             yield return 0;
