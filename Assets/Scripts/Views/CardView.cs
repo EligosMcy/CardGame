@@ -70,24 +70,36 @@ namespace Views
         {
             if (!Interactions.Instance.PlayerCanInteract()) return;
 
-            Interactions.Instance.PlayerIsDragging = true;
+            if (Card.ManualTargetEffect != null)
+            {
+                ManualTargetSystem.Instance.StartTargeting(transform.position);
+            }
+            else
+            {
+                Interactions.Instance.PlayerIsDragging = true;
 
-            _wrapper.SetActive(true);
+                _wrapper.SetActive(true);
 
-            CardViewHoverSystem.Instance.Hide();
+                CardViewHoverSystem.Instance.Hide();
 
-            _dragStartPosition = transform.position;
+                _dragStartPosition = transform.position;
 
-            _dragStartRotation = transform.rotation;
+                _dragStartRotation = transform.rotation;
 
-            transform.rotation = Quaternion.Euler(Vector3.zero);
+                transform.rotation = Quaternion.Euler(Vector3.zero);
 
-            transform.position = MouseUtil.GetMousePositionInWorldSpace(-1);
+                transform.position = MouseUtil.GetMousePositionInWorldSpace(-1);
+            }
         }
 
         public void OnMouseDrag()
         {
             if (!Interactions.Instance.PlayerCanInteract()) return;
+
+            if (Card.ManualTargetEffect != null)
+            {
+                return;
+            }
 
             transform.position = MouseUtil.GetMousePositionInWorldSpace(-1);
         }
@@ -96,19 +108,34 @@ namespace Views
         {
             if (!Interactions.Instance.PlayerCanInteract()) return;
 
-            if (ManaSystem.Instance.HasEnoughMana(Card.Mana) && Physics.Raycast(transform.position, Vector3.forward, out RaycastHit hit, 10f, _dropAreaLayerMask))
+            if (Card.ManualTargetEffect != null)
             {
-                PlayCardGA playCardGa = new PlayCardGA(Card);
+                EnemyView target =
+                    ManualTargetSystem.Instance.EndTargeting(MouseUtil.GetMousePositionInWorldSpace(-1f));
 
-                ActionSystem.Instance.Perform(playCardGa);
+                if (target != null && ManaSystem.Instance.HasEnoughMana(Card.Mana))
+                {
+                    PlayCardGA playCardGa = new PlayCardGA(Card, target);
+
+                    ActionSystem.Instance.Perform(playCardGa);
+                }
             }
             else
             {
-                transform.position = _dragStartPosition;
-                transform.rotation = _dragStartRotation;
-            }
+                if (ManaSystem.Instance.HasEnoughMana(Card.Mana) && Physics.Raycast(transform.position, Vector3.forward, out RaycastHit hit, 10f, _dropAreaLayerMask))
+                {
+                    PlayCardGA playCardGa = new PlayCardGA(Card);
 
-            Interactions.Instance.PlayerIsDragging = false;
+                    ActionSystem.Instance.Perform(playCardGa);
+                }
+                else
+                {
+                    transform.position = _dragStartPosition;
+                    transform.rotation = _dragStartRotation;
+                }
+
+                Interactions.Instance.PlayerIsDragging = false;
+            }
         }
     }
 

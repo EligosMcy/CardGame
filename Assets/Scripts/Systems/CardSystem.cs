@@ -11,6 +11,7 @@ using Data;
 using General;
 using UnityEngine;
 using Views;
+using static UnityEngine.GraphicsBuffer;
 
 namespace Systems
 {
@@ -108,6 +109,13 @@ namespace Systems
             //spend Mana
             SpendManaGA spendManaGa = new SpendManaGA(playCardGa.Card.Mana);
             ActionSystem.Instance.AddReaction(spendManaGa);
+
+            if (playCardGa.Card.ManualTargetEffect != null)
+            {
+                PerformEffectGA performEffectGa = new PerformEffectGA(playCardGa.Card.ManualTargetEffect, new List<CombatantView>() { playCardGa.ManualTarget });
+
+                ActionSystem.Instance.AddReaction(performEffectGa);
+            }
 
             //perform Effects
             foreach (var effectWrapper in playCardGa.Card.OtherEffects)

@@ -13,7 +13,7 @@ namespace GameActions
         public DealDamageGA(int amount, List<CombatantView> targets)
         {
             Amount = amount;
-            Targets = new List<CombatantView>(targets);
+            Targets = targets == null ? null : new List<CombatantView>(targets);
         }
     }
 }
