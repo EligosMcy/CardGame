@@ -17,7 +17,7 @@ namespace PerkConditions
             ActionSystem.UnsubscribeReaction<AttackHeroGA>(reaction, ReactionTiming);
         }
 
-        public override bool SunConditionIsMet()
+        public override bool SunConditionIsMet(GameAction gameAction)
         {
             return true;
         }

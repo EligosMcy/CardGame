@@ -16,6 +16,13 @@ namespace Systems
 
         private int _currentMana = MAX_MANA;
 
+        private void Start()
+        {
+            _currentMana = MAX_MANA;
+
+            _manaUI.UpdateManaText(_currentMana);
+        }
+
         private void OnEnable()
         {
             ActionSystem.AttachPerformer<SpendManaGA>(spendManaPerformer);

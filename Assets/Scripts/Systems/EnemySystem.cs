@@ -73,7 +73,7 @@ namespace Systems
 
             CombatantView heroCombatantView = HeroSystem.Instance.HeroView;
 
-            DealDamageGA dealDamageGa = new DealDamageGA(attacker.AttackPower, new List<CombatantView>() { heroCombatantView });
+            DealDamageGA dealDamageGa = new DealDamageGA(attacker.AttackPower, new List<CombatantView>() { heroCombatantView }, attackHeroGa.Caster);
 
             ActionSystem.Instance.AddReaction(dealDamageGa);
         }

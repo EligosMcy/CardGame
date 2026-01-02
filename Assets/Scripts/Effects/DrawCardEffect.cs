@@ -12,7 +12,7 @@ namespace Effects
         [SerializeField]
         private int _drawAmount;
 
-        public override GameAction GetGameAction(List<CombatantView> targets)
+        public override GameAction GetGameAction(List<CombatantView> targets,CombatantView caster)
         {
             DrawCardsGA drawCardsGa = new DrawCardsGA(_drawAmount);
 

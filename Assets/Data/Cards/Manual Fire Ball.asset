@@ -18,21 +18,10 @@ MonoBehaviour:
   <Image>k__BackingField: {fileID: 21300000, guid: dc361f15bb071d24c9b2403b510112a6, type: 3}
   <ManualTargetEffect>k__BackingField:
     rid: 4498577614864121932
-  <OtherEffects>k__BackingField:
-  - <TargetMode>k__BackingField:
-      rid: 4498577593036177495
-    <Effect>k__BackingField:
-      rid: 4498577593036177496
+  <OtherEffects>k__BackingField: []
   references:
     version: 2
     RefIds:
-    - rid: 4498577593036177495
-      type: {class: RandomEnemyTM, ns: TargetModels, asm: Assembly-CSharp}
-      data: 
-    - rid: 4498577593036177496
-      type: {class: DealDamageEffect, ns: Effects, asm: Assembly-CSharp}
-      data:
-        _damageAmount: 1
     - rid: 4498577614864121932
       type: {class: DealDamageEffect, ns: Effects, asm: Assembly-CSharp}
       data:

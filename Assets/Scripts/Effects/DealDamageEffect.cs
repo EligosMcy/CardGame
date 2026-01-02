@@ -12,9 +12,9 @@ namespace Effects
     {
         [SerializeField] private int _damageAmount;
 
-        public override GameAction GetGameAction(List<CombatantView> targets)
+        public override GameAction GetGameAction(List<CombatantView> targets, CombatantView caster)
         {
-            DealDamageGA dealDamageGa = new DealDamageGA(_damageAmount, targets);
+            DealDamageGA dealDamageGa = new DealDamageGA(_damageAmount, targets, caster);
 
             return dealDamageGa;
         }

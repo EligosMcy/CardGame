@@ -2,6 +2,7 @@
 using GameActions;
 using General.ActionSystemComponents;
 using System.Collections.Generic;
+using Models;
 using UnityEngine;
 
 namespace Systems
@@ -9,6 +10,8 @@ namespace Systems
     public class MatchSetupSystem : MonoBehaviour
     {
         [SerializeField] private HeroData _heroData;
+
+        [SerializeField] private PerkData _perkData;
 
         [SerializeField] private List<EnemyData> _enemyDataList;
 
@@ -20,14 +23,17 @@ namespace Systems
 
             CardSystem.Instance.Setup(_heroData.Deck);
 
-            RefillManaGA refillManaGa = new RefillManaGA();
 
-            ActionSystem.Instance.Perform(refillManaGa, () =>
-            {
-                DrawCardsGA drawCardsGa = new DrawCardsGA(5);
+            //
+            Perk perk = new Perk(_perkData);
 
-                ActionSystem.Instance.Perform(drawCardsGa);
-            });
+            PerkSystem.Instance.AddPerk(perk);
+
+
+            //
+            DrawCardsGA drawCardsGa = new DrawCardsGA(5);
+
+            ActionSystem.Instance.Perform(drawCardsGa);
         }
     }
 }

@@ -6,11 +6,11 @@ namespace Models
 {
     public abstract class PerkCondition
     {
-        [SerializeField] 
+        [SerializeField]
         protected ReactionTiming ReactionTiming;
 
         public abstract void SubscribeCondition(Action<GameAction> reaction);
         public abstract void UnSubscribeCondition(Action<GameAction> reaction);
-        public abstract bool SunConditionIsMet();
+        public abstract bool SunConditionIsMet(GameAction gameAction);
     }
 }

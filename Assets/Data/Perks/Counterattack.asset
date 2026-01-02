@@ -22,8 +22,9 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 49614419377520715
+      type: {class: RandomEnemyTM, ns: TargetModels, asm: Assembly-CSharp}
+      data: 
     - rid: 4498577661025583179
       type: {class: OnEnemyAttackCondition, ns: PerkConditions, asm: Assembly-CSharp}
       data:
@@ -32,7 +33,7 @@ MonoBehaviour:
       type: {class: AutoTargetEffect, ns: Effects, asm: Assembly-CSharp}
       data:
         <TargetMode>k__BackingField:
-          rid: -2
+          rid: 49614419377520715
         <Effect>k__BackingField:
           rid: 4498577661025583181
     - rid: 4498577661025583181
