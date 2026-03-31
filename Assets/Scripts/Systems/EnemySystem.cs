@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Data;
 using DG.Tweening;
+using Enums;
 using GameActions;
 using General;
 using General.ActionSystemComponents;
@@ -47,6 +48,16 @@ namespace Systems
         {
             foreach (EnemyView enemyView in _enemyBoardView.EnemyViews)
             {
+                int burnStacks = enemyView.GetStatusEffectStacks(StatusEffectType.BURN);
+
+                if (burnStacks > 0)
+                {
+                    ApplyBurnGA applyBurnGA = new ApplyBurnGA(burnStacks, enemyView);
+                    ActionSystem.Instance.AddReaction(applyBurnGA);
+
+                }
+
+
                 AttackHeroGA attackHeroGa = new AttackHeroGA(enemyView);
 
                 ActionSystem.Instance.AddReaction(attackHeroGa);
