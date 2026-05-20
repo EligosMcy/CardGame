@@ -110,8 +110,7 @@ namespace Views
 
             if (Card.ManualTargetEffect != null)
             {
-                EnemyView target =
-                    ManualTargetSystem.Instance.EndTargeting(MouseUtil.GetMousePositionInWorldSpace(-1f));
+                EnemyView target = ManualTargetSystem.Instance.EndTargeting(MouseUtil.GetMousePositionInWorldSpace(-1f));
 
                 if (target != null && ManaSystem.Instance.HasEnoughMana(Card.Mana))
                 {

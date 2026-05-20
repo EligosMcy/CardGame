@@ -1,0 +1,268 @@
+{
+  "cards": [
+    {
+      "name": "打击",
+      "type": "attack",
+      "cost": 1,
+      "rarity": "common",
+      "description": "造成 6 点伤害",
+      "effect": {
+        "damage": 6
+      }
+    },
+    {
+      "name": "猛击",
+      "type": "attack",
+      "cost": 2,
+      "rarity": "common",
+      "description": "造成 12 点伤害",
+      "effect": {
+        "damage": 12
+      }
+    },
+    {
+      "name": "重击",
+      "type": "attack",
+      "cost": 2,
+      "rarity": "uncommon",
+      "description": "造成 14 点伤害，若手中没有攻击卡则伤害翻倍",
+      "effect": {
+        "damage": 14,
+        "conditionDamageMultiplier": 2
+      }
+    },
+    {
+      "name": "致命打击",
+      "type": "attack",
+      "cost": 1,
+      "rarity": "rare",
+      "description": "造成 18 点伤害",
+      "effect": {
+        "damage": 18
+      }
+    },
+    {
+      "name": "旋风斩",
+      "type": "attack",
+      "cost": 1,
+      "rarity": "common",
+      "description": "对所有敌人造成 4 点伤害",
+      "effect": {
+        "damage": 4,
+        "targetAll": true
+      }
+    },
+    {
+      "name": "横扫",
+      "type": "attack",
+      "cost": 2,
+      "rarity": "common",
+      "description": "对所有敌人造成 8 点伤害",
+      "effect": {
+        "damage": 8,
+        "targetAll": true
+      }
+    },
+    {
+      "name": "烈焰斩",
+      "type": "attack",
+      "cost": 2,
+      "rarity": "uncommon",
+      "description": "造成 10 点伤害，施加 2 层燃烧",
+      "effect": {
+        "damage": 10,
+        "burn": 2
+      }
+    },
+    {
+      "name": "精准打击",
+      "type": "attack",
+      "cost": 1,
+      "rarity": "common",
+      "description": "造成 5 点伤害，抽 1 张牌",
+      "effect": {
+        "damage": 5,
+        "drawCards": 1
+      }
+    },
+    {
+      "name": "防御",
+      "type": "skill",
+      "cost": 1,
+      "rarity": "common",
+      "description": "获得 5 点护甲",
+      "effect": {
+        "armor": 5
+      }
+    },
+    {
+      "name": "铁壁",
+      "type": "skill",
+      "cost": 2,
+      "rarity": "uncommon",
+      "description": "获得 12 点护甲",
+      "effect": {
+        "armor": 12
+      }
+    },
+    {
+      "name": "金属化",
+      "type": "power",
+      "cost": 1,
+      "rarity": "uncommon",
+      "description": "能力：回合结束时获得 3 点护甲",
+      "effect": {
+        "endTurnArmor": 3
+      }
+    },
+    {
+      "name": "护盾冲击",
+      "type": "skill",
+      "cost": 1,
+      "rarity": "common",
+      "description": "获得 5 点护甲，造成 5 点伤害",
+      "effect": {
+        "armor": 5,
+        "damage": 5
+      }
+    },
+    {
+      "name": "反弹",
+      "type": "skill",
+      "cost": 1,
+      "rarity": "common",
+      "description": "获得 4 点护甲，反弹 3 点伤害",
+      "effect": {
+        "armor": 4,
+        "thorns": 3
+      }
+    },
+    {
+      "name": "再生",
+      "type": "skill",
+      "cost": 1,
+      "rarity": "common",
+      "description": "获得 6 点护甲，回合结束时恢复 3 点生命值",
+      "effect": {
+        "armor": 6,
+        "endTurnHeal": 3
+      }
+    },
+    {
+      "name": "能量涌动",
+      "type": "skill",
+      "cost": 0,
+      "rarity": "uncommon",
+      "description": "获得 2 点能量",
+      "effect": {
+        "energy": 2
+      }
+    },
+    {
+      "name": "双持",
+      "type": "power",
+      "cost": 1,
+      "rarity": "rare",
+      "description": "能力：每回合开始时获得 1 点能量",
+      "effect": {
+        "startTurnEnergy": 1
+      }
+    },
+    {
+      "name": "爆发",
+      "type": "skill",
+      "cost": 1,
+      "rarity": "common",
+      "description": "获得 2 点能量，本回合结束时失去 1 点能量",
+      "effect": {
+        "energy": 2,
+        "endTurnEnergyLoss": 1
+      }
+    },
+    {
+      "name": "能量转化",
+      "type": "skill",
+      "cost": 1,
+      "rarity": "common",
+      "description": "失去 2 点生命，获得 2 点能量",
+      "effect": {
+        "energy": 2,
+        "selfDamage": 2
+      }
+    },
+    {
+      "name": "灵感",
+      "type": "skill",
+      "cost": 0,
+      "rarity": "common",
+      "description": "获得 1 点能量，抽 1 张牌",
+      "effect": {
+        "energy": 1,
+        "drawCards": 1
+      }
+    },
+    {
+      "name": "治疗",
+      "type": "skill",
+      "cost": 1,
+      "rarity": "common",
+      "description": "恢复 6 点生命值",
+      "effect": {
+        "heal": 6
+      }
+    },
+    {
+      "name": "愈合",
+      "type": "skill",
+      "cost": 1,
+      "rarity": "common",
+      "description": "恢复 8 点生命值",
+      "effect": {
+        "heal": 8
+      }
+    },
+    {
+      "name": "再生术",
+      "type": "skill",
+      "cost": 2,
+      "rarity": "uncommon",
+      "description": "恢复 12 点生命值",
+      "effect": {
+        "heal": 12
+      }
+    },
+    {
+      "name": "吸血打击",
+      "type": "attack",
+      "cost": 1,
+      "rarity": "common",
+      "description": "造成 8 点伤害，恢复等量生命值",
+      "effect": {
+        "damage": 8,
+        "lifesteal": true
+      }
+    },
+    {
+      "name": "生命偷取",
+      "type": "attack",
+      "cost": 2,
+      "rarity": "uncommon",
+      "description": "造成 10 点伤害，恢复等量生命值",
+      "effect": {
+        "damage": 10,
+        "lifesteal": true
+      }
+    },
+    {
+      "name": "急救",
+      "type": "skill",
+      "cost": 1,
+      "rarity": "common",
+      "description": "恢复 5 点生命值，获得 3 点护甲",
+      "effect": {
+        "heal": 5,
+        "armor": 3
+      }
+    }
+  ]
+}
