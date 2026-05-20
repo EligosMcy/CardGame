@@ -5,14 +5,10 @@ using UnityEngine;
 
 namespace Models
 {
-    // 这里 Card 和 CardView 为什么不写在一起?
-
-    // 原因:
-    // 如果有一种牌,有两张相同的牌,当使用掉一个后降低随机一张牌的费用
-    // 这时候 使用固定的 Scriptable 作为数据源头实现就会错误
-
-    // 1.如果直接修改 Scriptable 就会导致所有牌数据都改了
-    // 2.综上所述: 再Scriptable之上再使用Card来存储数据
+    /// <summary>
+    /// 卡牌模型 - 运行时卡牌数据实例
+    /// 基于ScriptableObject的CardData创建，持有可变的费用等运行时数据
+    /// </summary>
     public class Card
     {
         public string Title => _data.name;

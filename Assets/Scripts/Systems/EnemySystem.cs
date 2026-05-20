@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using Data;
 using DG.Tweening;
@@ -11,6 +11,10 @@ using Views;
 
 namespace Systems
 {
+    /// <summary>
+    /// 敌人系统 - 管理所有敌人的行为和状态
+    /// 处理敌人回合执行、攻击玩家、死亡移除等逻辑
+    /// </summary>
     public class EnemySystem : Singleton<EnemySystem>
     {
         [SerializeField]
@@ -54,9 +58,7 @@ namespace Systems
                 {
                     ApplyBurnGA applyBurnGA = new ApplyBurnGA(burnStacks, enemyView);
                     ActionSystem.Instance.AddReaction(applyBurnGA);
-
                 }
-
 
                 AttackHeroGA attackHeroGa = new AttackHeroGA(enemyView);
 

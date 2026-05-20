@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using GameActions;
 using General;
@@ -8,6 +8,10 @@ using UnityEngine;
 
 namespace Systems
 {
+    /// <summary>
+    /// 能量系统 - 管理玩家的能量资源
+    /// 处理能量消耗、能量恢复、能量上限等逻辑
+    /// </summary>
     public class ManaSystem : Singleton<ManaSystem>
     {
         [SerializeField] private ManaUI _manaUI;

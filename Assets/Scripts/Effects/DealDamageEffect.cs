@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using GameActions;
 using General.ActionSystemComponents;
 using Models;
@@ -8,6 +8,9 @@ using Views;
 
 namespace Effects
 {
+    /// <summary>
+    /// 造成伤害效果 - 对目标造成伤害的卡牌效果实现
+    /// </summary>
     public class DealDamageEffect : Effect
     {
         [SerializeField] private int _damageAmount;

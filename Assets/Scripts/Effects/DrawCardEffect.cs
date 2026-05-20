@@ -7,6 +7,9 @@ using Views;
 
 namespace Effects
 {
+    /// <summary>
+    /// 抽牌效果 - 抽取指定数量卡牌的效果实现
+    /// </summary>
     public class DrawCardEffect : Effect
     {
         [SerializeField]

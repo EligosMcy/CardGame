@@ -1,4 +1,4 @@
-﻿using Creators;
+using Creators;
 using DG.Tweening;
 using Extensions;
 using GameActions;
@@ -14,6 +14,10 @@ using Views;
 
 namespace Systems
 {
+    /// <summary>
+    /// 卡牌系统 - 管理抽卡、弃牌、出牌等卡牌相关逻辑
+    /// 维护抽牌堆、弃牌堆、手牌，控制抽牌动画和出牌流程
+    /// </summary>
     public class CardSystem : Singleton<CardSystem>
     {
         [SerializeField] private HandView _handView;

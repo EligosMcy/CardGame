@@ -6,6 +6,10 @@ using Views;
 
 namespace Creators
 {
+    /// <summary>
+    /// 卡牌视图创建器 - 管理卡牌UI的实例化
+    /// 创建卡牌视图并播放显示动画
+    /// </summary>
     public class CardViewCreator : Singleton<CardViewCreator>
     {
         [SerializeField] private CardView _cardViewPrefab;

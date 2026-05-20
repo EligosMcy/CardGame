@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76ff972979bea0a48b275cfd92b2e098, type: 3}
   m_Name: Manual Fire Ball
   m_EditorClassIdentifier: 
-  <Description>k__BackingField: Deal 1 damage to random enemy and deal 1 damage to
-    Manual Target
+  <Description>k__BackingField: Deal 1 damage to Manual Target
   <Mana>k__BackingField: 1
   <Image>k__BackingField: {fileID: 21300000, guid: dc361f15bb071d24c9b2403b510112a6, type: 3}
   <ManualTargetEffect>k__BackingField:

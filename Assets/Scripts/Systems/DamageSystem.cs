@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using GameActions;
 using General;
@@ -8,6 +8,10 @@ using Views;
 
 namespace Systems
 {
+    /// <summary>
+    /// 伤害系统 - 处理对目标的伤害施加
+    /// 应用伤害数值、播放受伤特效、检测目标死亡并触发击杀事件
+    /// </summary>
     public class DamageSystem : Singleton<DamageSystem>
     {
         [SerializeField] private GameObject _damageVFX;

@@ -1,4 +1,4 @@
-﻿using Data;
+using Data;
 using GameActions;
 using General;
 using General.ActionSystemComponents;
@@ -9,6 +9,10 @@ using Views;
 
 namespace Systems
 {
+    /// <summary>
+    /// 英雄系统 - 管理玩家英雄的状态和行为
+    /// 处理英雄设置、状态效果管理和回合开始/结束时的逻辑
+    /// </summary>
     public class HeroSystem : Singleton<HeroSystem>
     {
         [field: SerializeField] public HeroView HeroView { get; private set; }

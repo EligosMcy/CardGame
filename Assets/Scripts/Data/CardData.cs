@@ -6,6 +6,10 @@ using UnityEngine;
 
 namespace Data
 {
+    /// <summary>
+    /// 卡牌数据 - ScriptableObject格式的卡牌定义
+    /// 包含卡牌名称、费用、效果等配置信息
+    /// </summary>
     [CreateAssetMenu(menuName = "Data/CardData", fileName = "CardData", order = 0)]
     public class CardData : ScriptableObject
     {

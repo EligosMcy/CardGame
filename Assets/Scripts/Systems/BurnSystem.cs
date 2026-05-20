@@ -8,6 +8,10 @@ using Views;
 
 namespace Systems
 {
+    /// <summary>
+    /// 燃烧系统 - 处理燃烧状态效果的伤害应用
+    /// 当目标有燃烧层数时，每层造成1点伤害并移除1层燃烧
+    /// </summary>
     public class BurnSystem : MonoBehaviour
     {
         [SerializeField] private GameObject _burnVFX;

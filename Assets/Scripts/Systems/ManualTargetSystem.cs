@@ -1,9 +1,13 @@
-﻿using General;
+using General;
 using UnityEngine;
 using Views;
 
 namespace Systems
 {
+    /// <summary>
+    /// 手动目标系统 - 处理需要玩家手动选择目标的卡牌
+    /// 显示瞄准箭头，管理目标选择过程
+    /// </summary>
     public class ManualTargetSystem : Singleton<ManualTargetSystem>
     {
         [SerializeField] private ArrowView _arrowView;

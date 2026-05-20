@@ -1,10 +1,14 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using General.ActionSystemComponents;
 using Interfaces;
 using Views;
 
 namespace GameActions
 {
+    /// <summary>
+    /// 造成伤害游戏动作 - 对目标列表造成指定数量的伤害
+    /// 实现IHaveCaster接口，追踪伤害来源
+    /// </summary>
     public class DealDamageGA : GameAction, IHaveCaster
     {
         public int Amount { get; set; }

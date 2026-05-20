@@ -613,8 +613,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fc8172609c121e49ac9e57c174a60ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _heroData: {fileID: 11400000, guid: d9d8f52ca5698e146b1cac434c6a8ee7, type: 2}
-  _perkData: {fileID: 11400000, guid: da32a878df6669644ba0aaf6c756c2a4, type: 2}
+  _heroData: {fileID: 11400000, guid: 8a466bbfd75ae8d4fa4909b32f9d1ba9, type: 2}
+  _perkDataList:
+  - {fileID: 11400000, guid: da32a878df6669644ba0aaf6c756c2a4, type: 2}
+  - {fileID: 11400000, guid: 356ca7de7ad7e944cb5d985b07424855, type: 2}
   _enemyDataList:
   - {fileID: 11400000, guid: 16293878b7f57ee409b59ad20fdfb8ef, type: 2}
   - {fileID: 11400000, guid: 8c5ce570264dca74a9d3775891e4fa30, type: 2}

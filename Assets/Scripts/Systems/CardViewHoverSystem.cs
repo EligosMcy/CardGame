@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using General;
 using Models;
 using UnityEngine;
@@ -6,6 +6,10 @@ using Views;
 
 namespace Systems
 {
+    /// <summary>
+    /// 卡牌悬停系统 - 管理卡牌hover时显示详细信息
+    /// 当鼠标悬停在手牌上时显示卡牌的详细视图
+    /// </summary>
     public class CardViewHoverSystem : Singleton<CardViewHoverSystem>
     {
         [SerializeField] private CardView _cardViewHover;
