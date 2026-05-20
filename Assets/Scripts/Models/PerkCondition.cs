@@ -1,5 +1,5 @@
-using System;
 using General.ActionSystemComponents;
+using System;
 using UnityEngine;
 
 namespace Models
@@ -25,7 +25,6 @@ namespace Models
         /// </summary>
         [SerializeField]
         protected ReactionTiming ReactionTiming;
-
         /// <summary>
         /// 订阅条件 - 注册对特定游戏动作的监听
         /// </summary>
@@ -44,6 +43,6 @@ namespace Models
         /// </summary>
         /// <param name="gameAction">触发的游戏动作</param>
         /// <returns>条件是否满足</returns>
-        public abstract bool SunConditionIsMet(GameAction gameAction);
+        public abstract bool SatisfiesConditionIsMet(GameAction gameAction);
     }
 }

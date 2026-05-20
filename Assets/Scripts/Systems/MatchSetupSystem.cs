@@ -27,14 +27,13 @@ namespace Systems
 
             CardSystem.Instance.Setup(_heroData.Deck);
 
-
-            //
             foreach (PerkData perkData in _perkDataList)
             {
+                //
                 Perk perk = new Perk(perkData);
+
                 PerkSystem.Instance.AddPerk(perk);
             }
-
             //
             DrawCardsGA drawCardsGa = new DrawCardsGA(5);
 

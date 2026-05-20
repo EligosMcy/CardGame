@@ -41,13 +41,16 @@ namespace Data
         /// - TargetMode: 如何选择目标（自己、所有敌人等）
         /// - Effect: 要执行的效果（伤害、护甲、抽牌等）
         /// </summary>
-        [field: SerializeReference, SR] public AutoTargetEffect AutoTargetEffect { get; private set; }
+        [field: SerializeReference, SR] public TargetMode TargetMode { get; private set; }
+        [field: SerializeReference, SR] public Effect Effect { get; private set; }
 
         /// <summary>
         /// 是否使用自动目标模式获取目标
         /// 如果为true，会根据TargetMode获取目标
         /// </summary>
         [field: SerializeField] public bool UseAutoTarget { get; private set; } = true;
+
+        [field: SerializeField] public bool UseManualTarget { get; private set; } = false;
 
         /// <summary>
         /// 是否使用触发动作的发起者作为目标

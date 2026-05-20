@@ -1,7 +1,8 @@
-﻿using System;
+using Effects;
 using GameActions;
 using General.ActionSystemComponents;
 using Models;
+using System;
 using UnityEngine;
 
 namespace PerkConditions
@@ -18,7 +19,7 @@ namespace PerkConditions
             ActionSystem.UnsubscribeReaction<PlayCardGA>(reaction, ReactionTiming);
         }
 
-        public override bool SunConditionIsMet(GameAction gameAction)
+        public override bool SatisfiesConditionIsMet(GameAction gameAction)
         {
             if (gameAction is PlayCardGA playCardGa)
             {

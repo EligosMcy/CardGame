@@ -2,7 +2,6 @@ using System;
 using GameActions;
 using General.ActionSystemComponents;
 using Models;
-using UnityEngine;
 
 namespace PerkConditions
 {
@@ -47,12 +46,10 @@ namespace PerkConditions
         /// </summary>
         /// <param name="gameAction">游戏动作（AttackHeroGA）</param>
         /// <returns>始终返回true，表示条件满足</returns>
-        public override bool SunConditionIsMet(GameAction gameAction)
+        public override bool SatisfiesConditionIsMet(GameAction gameAction)
         {
             // 可以在这里添加更复杂的条件判断
             // 例如：只在玩家生命值低于50%时触发
-            Debug.Log($"GameAction:{gameAction.GetType()}");
-
             return true;
         }
     }

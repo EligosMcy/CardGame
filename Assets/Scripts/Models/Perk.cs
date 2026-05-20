@@ -1,8 +1,9 @@
-using System.Collections.Generic;
 using Data;
 using Effects;
 using General.ActionSystemComponents;
 using Interfaces;
+using SerializeReferenceEditor;
+using System.Collections.Generic;
 using Systems;
 using UnityEngine;
 using Views;
@@ -41,7 +42,9 @@ namespace Models
         /// <summary>
         /// 自动目标效果（包含目标模式和效果）
         /// </summary>
-        private readonly AutoTargetEffect _autoTargetEffect;
+        private TargetMode _targetMode;
+
+        private Effect _effect;
 
         /// <summary>
         /// 构造函数 - 从配置数据创建特权实例
@@ -51,7 +54,9 @@ namespace Models
         {
             _data = perkData;
             _condition = perkData.PerkCondition;
-            _autoTargetEffect = perkData.AutoTargetEffect;
+
+            _targetMode = perkData.TargetMode;
+            _effect = perkData.Effect;
         }
 
         /// <summary>
@@ -60,7 +65,18 @@ namespace Models
         /// </summary>
         public void OnAdd()
         {
-            // 订阅条件，当条件满足时会触发reaction回调
+            if (_condition == null)
+            {
+                Debug.LogWarning($"Perk {_data.name} has no condition configured");
+                return;
+            }
+
+            if (_data.UseAutoTarget && (_targetMode == null || _effect == null))
+            {
+                Debug.LogWarning($"Perk {_data.name} is missing TargetMode or Effect configuration");
+                return;
+            }
+
             _condition.SubscribeCondition(reaction);
         }
 
@@ -80,31 +96,28 @@ namespace Models
         /// <param name="gameAction">触发条件的游戏动作</param>
         private void reaction(GameAction gameAction)
         {
-            // 1. 检查条件是否真正满足（额外的条件判断）
-            if (_condition.SunConditionIsMet(gameAction))
+            if (_condition.SatisfiesConditionIsMet(gameAction))
             {
-                // 2. 收集目标列表
-                List<CombatantView> targets = new List<CombatantView>();
+                HashSet<CombatantView> targets = new HashSet<CombatantView>();
 
-                // 选项1：是否使用触发动作的发起者作为目标
-                // 例如：敌人攻击玩家时，把敌人作为目标进行反击
                 if (_data.UseActionCasterAsTarget && gameAction is IHaveCaster haveCaster)
                 {
                     targets.Add(haveCaster.Caster);
                 }
 
-                // 选项2：是否使用自动目标模式获取目标
-                // 例如：对所有敌人、对自己、随机敌人等
                 if (_data.UseAutoTarget)
                 {
-                    targets.AddRange(_autoTargetEffect.TargetMode.GetTargets());
+                    targets.UnionWith(_targetMode.GetTargets());
                 }
 
-                // 3. 创建效果动作并执行
-                // 把效果转换为具体的游戏动作（如造成伤害、添加护甲等）
-                GameAction perkEffectAction = _autoTargetEffect.Effect.GetGameAction(targets, HeroSystem.Instance.HeroView);
+                if (_data.UseManualTarget && gameAction is IHaveManualTarget haveManualTarget)
+                {
+                    targets.Add(haveManualTarget.ManualTarget);
+                }
 
-                // 将动作添加到动作系统队列中执行
+                //这里的Caster应该永远是HeroView
+                GameAction perkEffectAction = _effect.GetGameAction(new List<CombatantView>(targets), HeroSystem.Instance.HeroView);
+
                 ActionSystem.Instance.AddReaction(perkEffectAction);
             }
         }
