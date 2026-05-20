@@ -1,6 +1,7 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace General.ActionSystemComponents
 {
@@ -18,6 +19,8 @@ namespace General.ActionSystemComponents
 
         //Type Attach Performer
         private static Dictionary<Type, Func<GameAction, IEnumerator>> _performers = new();
+
+        private static Dictionary<Delegate, Action<GameAction>> _wrappedReactions = new();
 
 
         /// <summary>
@@ -148,14 +151,19 @@ namespace General.ActionSystemComponents
 
             Type type = typeof(T);
 
+            _wrappedReactions[reaction] = WrappedReaction;
+
             if (subs.TryGetValue(type, out var sub))
             {
                 sub.Add(WrappedReaction);
+                // Debug.Log($"添加注册 {type} , {timing}: -> {sub.Count}");
+
             }
             else
             {
                 subs.Add(type, new());
                 subs[type].Add(WrappedReaction);
+                // Debug.Log($"添加注册 {type} , {timing}: -> {subs[type].Count}");
             }
         }
 
@@ -167,9 +175,12 @@ namespace General.ActionSystemComponents
 
             if (subs.TryGetValue(type, out var sub))
             {
-                void WrappedReaction(GameAction action) => reaction((T)action);
-
-                sub.Remove(WrappedReaction);
+                if (_wrappedReactions.TryGetValue(reaction, out var wrapped))
+                {
+                    sub.Remove(wrapped);
+                    _wrappedReactions.Remove(reaction);
+                }
+                // Debug.Log($"删除注册 {type} , {timing}: -> {sub.Count}");
             }
         }
     }

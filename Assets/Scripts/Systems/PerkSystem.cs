@@ -36,6 +36,8 @@ namespace Systems
         /// </summary>
         private readonly List<Perk> _perks = new List<Perk>();
 
+        public List<Perk> Perks => _perks;
+
         /// <summary>
         /// 添加特权到玩家身上
         /// </summary>

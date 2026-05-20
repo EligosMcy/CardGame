@@ -24,6 +24,12 @@ namespace Data
     public class PerkData : ScriptableObject
     {
         /// <summary>
+        /// 特权的显示名称
+        /// </summary>
+        [field: SerializeField]
+        public string PerkStr { get; private set; }
+
+        /// <summary>
         /// 特权的显示图标
         /// </summary>
         [field: SerializeField]

@@ -38,9 +38,7 @@ namespace Systems
 
         private void enemyTurnPerReaction(EnemyTurnGA enemyTurnGa)
         {
-            DiscardAllCardsGA discardAllCardsGa = new DiscardAllCardsGA();
 
-            ActionSystem.Instance.AddReaction(discardAllCardsGa);
         }
 
         private void enemyTurnPostReaction(EnemyTurnGA enemyTurnGa)
@@ -53,10 +51,6 @@ namespace Systems
 
                 ActionSystem.Instance.AddReaction(applyBurnGA);
             }
-
-            DrawCardsGA drawCardsGa = new DrawCardsGA(5);
-
-            ActionSystem.Instance.AddReaction(drawCardsGa);
         }
 
     }

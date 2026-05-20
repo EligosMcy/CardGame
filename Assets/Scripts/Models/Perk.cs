@@ -36,6 +36,12 @@ namespace Models
         public Sprite Image => _data.Image;
 
         /// <summary>
+        /// 特权的唯一标识符（如："Perk1"）
+        /// 用于在特权系统中唯一识别特权
+        /// </summary>
+        public string PerkStr => _data.PerkStr;
+
+        /// <summary>
         /// 特权的配置数据（ScriptableObject）
         /// 包含特权的所有配置信息，如图标、条件、效果等
         /// </summary>
