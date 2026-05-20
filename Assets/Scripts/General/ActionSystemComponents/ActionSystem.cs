@@ -19,6 +19,12 @@ namespace General.ActionSystemComponents
         //Type Attach Performer
         private static Dictionary<Type, Func<GameAction, IEnumerator>> _performers = new();
 
+
+        /// <summary>
+        /// 启动方法
+        /// </summary>
+        /// <param name="action"></param>
+        /// <param name="OnPerformFinished"></param>
         public void Perform(GameAction action, Action OnPerformFinished = null)
         {
             if (IsPerforming)
@@ -37,7 +43,7 @@ namespace General.ActionSystemComponents
 
 
         /// <summary>
-        /// 想要在执行中的GameAction 中 执行另一个游戏动作 使用这个方法
+        /// 想要在执行中的GameAction中 执行另一个新的GameAction使用这个方法
         /// </summary>
         /// <param name="gameAction"></param>
         public void AddReaction(GameAction gameAction)
@@ -47,18 +53,30 @@ namespace General.ActionSystemComponents
 
         private IEnumerator flow(GameAction action, Action OnFlowFinished = null)
         {
+            //执行前序方法
+
+            //得到其他 前序GameAction
             _reactions = action.PreReactions;
+            //执行当前 前序GameAction前序方法
             performSubscribers(action, _preSubs);
+            //执行其他 前序GameAction方法
             yield return performReactions();
 
 
+            //执行方法
+            //得到其他 GameAction
             _reactions = action.PerformReactions;
+            //执行当前 GameAction方法
             yield return performPerformer(action);
+            //执行其他 GameAction方法
             yield return performReactions();
 
-
+            //执行后序方法
+            //得到其他 后序GameAction
             _reactions = action.PostReactions;
+            //执行当前 后序GameAction前序方法
             performSubscribers(action, _postSubs);
+            //执行当前 后序GameAction前序方法
             yield return performReactions();
 
             OnFlowFinished?.Invoke();

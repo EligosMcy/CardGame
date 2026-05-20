@@ -24,10 +24,18 @@ namespace General.ActionSystemComponents.Test
             _swordManAnimator.Play(stateName);
         }
 
-        public IEnumerator PlayAnimatorAndWait(string stateName)
+        public IEnumerator PlayAnimatorAndWait(string stateName, float waitTime = 0)
         {
             _swordManAnimator.Play(stateName); // 播放动画
-            yield return 0;
+
+            if (waitTime > 0)
+            {
+                yield return new WaitForSeconds(waitTime);
+            }
+            else
+            {
+                yield return 0;
+            }
         }
 
         private void drawCardReaction(DrawCardGA drawCardGa)

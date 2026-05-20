@@ -383,6 +383,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4210157123753652, guid: 6877fb649746c674d8fbbcf60d41892b, type: 3}
   m_PrefabInstance: {fileID: 816041758}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &960959794
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 960959795}
+  m_Layer: 0
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &960959795
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960959794}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.8, y: 0.2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7685096808526444827}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &988542241
 GameObject:
   m_ObjectHideFlags: 0
@@ -1363,11 +1394,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2042623225147202414, guid: 39385abaa1419dd49a82630f158c9b93, type: 3}
   m_PrefabInstance: {fileID: 1954208404}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1954208406 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 68082740759749513, guid: 39385abaa1419dd49a82630f158c9b93, type: 3}
-  m_PrefabInstance: {fileID: 1954208404}
-  m_PrefabAsset: {fileID: 0}
 --- !u!95 &1965153003 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 95898481864777010, guid: 6877fb649746c674d8fbbcf60d41892b, type: 3}
@@ -2221,6 +2247,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3995092676550333486}
+  - {fileID: 960959795}
   m_Father: {fileID: 362439528}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7685096808526444828
@@ -2236,7 +2263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healthText: {fileID: 4790425077476381291}
-  _healthAnimator: {fileID: 1954208406}
+  _healthAttackPoint: {fileID: 960959795}
 --- !u!4 &8366520106879727117
 Transform:
   m_ObjectHideFlags: 0

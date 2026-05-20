@@ -31,11 +31,11 @@ namespace General.ActionSystemComponents.Test
 
             _knife.PlayAnimator("Run");
 
-            Tween toTween = _knife.transform.DOMove(_health.transform.position, 0.25f);
+            Tween toTween = _knife.transform.DOMove(_health.HealthAttackPoint.position, 0.25f);
 
             yield return toTween.WaitForCompletion();
 
-            yield return _knife.PlayAnimatorAndWait("Attack");
+            yield return _knife.PlayAnimatorAndWait("Attack",0.25f);
 
             yield return _health.ReduceHealth(damageAmount);
 

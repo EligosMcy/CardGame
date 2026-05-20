@@ -14,7 +14,6 @@ namespace General.ActionSystemComponents.Test
         void OnDisable()
         {
             ActionSystem.DetachPerformer<IncreaseStatsGA>();
-
         }
 
         private IEnumerator increaseStatsPerformer(IncreaseStatsGA increaseStatsGa)

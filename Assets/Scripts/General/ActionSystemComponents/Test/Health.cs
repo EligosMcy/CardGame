@@ -10,6 +10,11 @@ namespace General.ActionSystemComponents.Test
         [SerializeField]
         private TextMeshPro _healthText;
 
+        [SerializeField] 
+        private Transform _healthAttackPoint;
+
+        public Transform HealthAttackPoint => _healthAttackPoint;
+
         private int _healthAmount;
 
         private void Awake()
