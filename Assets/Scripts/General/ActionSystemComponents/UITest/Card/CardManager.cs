@@ -6,7 +6,8 @@ namespace General.ActionSystemComponents.UITest
     public class CardManager : MonoBehaviour
     {
         [Header("卡牌配置")]
-        [SerializeField] private TextAsset cardJsonAsset;
+        [SerializeField] 
+        private TextAsset cardJsonAsset;
 
         public static CardManager Instance { get; private set; }
 
