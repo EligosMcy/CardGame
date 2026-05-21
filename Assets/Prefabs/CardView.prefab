@@ -363,8 +363,8 @@ GameObject:
   - component: {fileID: 3002638595376144694}
   - component: {fileID: 4497735349216830888}
   - component: {fileID: 2488370831604412704}
-  - component: {fileID: 4100149596546563780}
-  m_Layer: 0
+  - component: {fileID: 9078528857447596926}
+  m_Layer: 8
   m_Name: CardView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -407,6 +407,7 @@ MonoBehaviour:
   _dropAreaLayerMask:
     serializedVersion: 2
     m_Bits: 64
+  _sortingGroup: {fileID: 2488370831604412704}
 --- !u!210 &2488370831604412704
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -419,7 +420,7 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortAtRoot: 0
---- !u!65 &4100149596546563780
+--- !u!65 &9078528857447596926
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

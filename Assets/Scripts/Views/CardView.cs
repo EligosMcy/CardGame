@@ -1,4 +1,5 @@
 using System;
+using DG.Tweening;
 using GameActions;
 using General.ActionSystemComponents;
 using General.Util;
@@ -6,6 +7,7 @@ using Models;
 using Systems;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace Views
 {
@@ -22,6 +24,8 @@ namespace Views
         [SerializeField] private GameObject _wrapper;
 
         [SerializeField] private LayerMask _dropAreaLayerMask;
+
+        [SerializeField] private SortingGroup _sortingGroup;
 
         public Card Card { get; private set; }
 
@@ -44,7 +48,17 @@ namespace Views
             _imageSr.sprite = card.Image;
         }
 
+        public void UpdateSortingGroupSortingLayer(int sortingLayer)
+        {
+            _sortingGroup.sortingOrder = sortingLayer;
+        }
 
+
+        public void UpdateCardViewPosRot(Vector3 position, Quaternion rotation, float duration)
+        {
+            transform.DOMove(position, duration);
+            transform.DORotateQuaternion(rotation, duration);
+        }
 
         private void OnMouseEnter()
         {

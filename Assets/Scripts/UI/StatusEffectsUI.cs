@@ -10,7 +10,8 @@ namespace UI
         [SerializeField]
         private StatusEffectUI _statusEffectUIPrefab;
 
-        [SerializeField] private Sprite _armorSprite, _burnSprite;
+        [SerializeField] 
+        private Sprite _armorSprite, _burnSprite;
 
         private Dictionary<StatusEffectType, StatusEffectUI> _statusEffectUIs = new();
 
