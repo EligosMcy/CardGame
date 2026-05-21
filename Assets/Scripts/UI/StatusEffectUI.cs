@@ -1,4 +1,4 @@
-﻿using TMPro;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,9 +12,10 @@ namespace UI
         [SerializeField]
         private TextMeshProUGUI _stackCountText;
 
-        public void Set(Sprite sprite, int stackCount)
+        public void Set(Sprite sprite, int stackCount, Color color)
         {
             _image.sprite = sprite;
+            _image.color = color;
             _stackCountText.text = stackCount.ToString();
         }
 
